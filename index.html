@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Seokhyun Kim — robotics researcher designing, building, and controlling robotic systems." />
+  <title>Seokhyun Kim | Robotics Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="#home">Seokhyun Kim</a>
+      <button class="menu-btn" aria-label="Open menu" aria-expanded="false">☰</button>
+      <nav class="nav" aria-label="Primary navigation">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#research">Research</a>
+        <a href="#projects">Projects</a>
+        <a href="#resume">Resume</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section id="home" class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy-block">
+          <h1>Seokhyun Kim</h1>
+          <p class="hero-copy">
+            I am an M.S. student in Mechanical Engineering at Carnegie Mellon University who designs, builds,
+            and controls robots. My work spans mechanical design, electronics, sensing, simulation, and control,
+            from a 33&nbsp;g untethered quadruped to a cat-inspired robot that rights itself in midair.
+          </p>
+          <div class="hero-actions">
+            <a class="btn primary" href="#research">Research</a>
+            <a class="btn secondary" href="#projects">Projects</a>
+            <a class="btn ghost" href="#contact">Contact</a>
+          </div>
+        </div>
+
+        <img class="profile-photo" src="id-photo.jpg" alt="Portrait of Seokhyun Kim">
+      </div>
+    </section>
+
+    <section id="about" class="section">
+      <div class="container split-layout">
+        <div>
+          <p class="section-kicker">About</p>
+          <h2>I enjoy taking robotic systems from an idea to a working prototype.</h2>
+        </div>
+        <div class="prose">
+          <p>
+            I am a graduate researcher in the Microrobotics Lab and the Biorobotics Lab at Carnegie Mellon University,
+            and I previously studied decentralized locomotion control in the Real-World Computing Lab at Tohoku University.
+            Across these labs, I have built legged, underwater, and aerial robots inspired by animals.
+          </p>
+          <p>
+            I do my best work where hardware and software meet: designing the mechanism, building the electronics,
+            and writing the controller so the whole robot works reliably. I am looking for robotics research and
+            development roles where I can take systems from an idea to a tested prototype.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="research" class="section alt">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Research</h2>
+          </div>
+          <p class="section-note">Research across legged, underwater, aerial, and bio-inspired robotic systems.</p>
+        </div>
+
+        <div class="research-grid">
+          <article class="research-card">
+            <div class="research-image">
+              <img src="lil-quad.jpg" alt="Lil-Quad robot next to a 9-volt battery for scale." />
+            </div>
+            <div class="research-content">
+              <p class="item-type">Current-based proprioception · Small-scale locomotion</p>
+              <h3>Lil-Quad</h3>
+              <p>
+                Small legged robots could search collapsed buildings or inspect tight spaces, but at the
+                centimeter scale most of them run open-loop, because there is little room for sensors. My project,
+                Lil-Quad, set out to give a robot this small real feedback by using the one signal every motor
+                already produces: its current. I designed and built an untethered, RHex-inspired quadruped about
+                the height of a 9-volt battery. It has an FDM-printed ABS torso, SLA-printed legs that combine
+                rigid and compliant materials, and a custom PCB with a microcontroller, motor drivers and current
+                sensors. From those current signals, a neural network I trained detects when each leg touches down
+                and lifts off, so the robot senses ground contact without encoders or foot sensors. I'm now building
+                on that sensing to make the gait more stable. That means refining the PD controller, redesigning the
+                legs to keep the front feet on the ground, and exploring learning-based control.
+              </p>
+              <div class="tags">
+                <span>Motor current sensing</span>
+                <span>PCB design</span>
+                <span>Embedded systems</span>
+                <span>Machine learning</span>
+                <span>3D printing</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="research-card">
+            <div class="research-image zoom-out-image">
+              <img src="humrs-pool.jpg" alt="HUMRS underwater snake robot undergoing testing in a pool." />
+            </div>
+            <div class="research-content">
+              <p class="item-type">Underwater robotics · State estimation</p>
+              <h3>HUMRS</h3>
+              <p>
+                Underwater infrastructure such as ship hulls, pipes and dams needs regular inspection, but divers are
+                costly and bulky vehicles can't reach tight spaces. HUMRS (Hardened Underwater Modular Robot Snake) is
+                an articulated snake robot that can slip into those spaces. It already swims well under
+                teleoperation, but a human operator still has to guide every move. To give it more autonomy, the robot
+                first needs to see and understand where it is, and that is hard underwater. Light fades, the water is
+                murky and there are few visual features to track. I'm working on improving the robot's underwater
+                vision. I integrate its cameras and sensors in ROS and adapt VINS-Fusion, a visual-inertial method, to
+                estimate the robot's position and orientation from camera and IMU data. I'm also working on waterproof
+                mechanical design so the vision hardware works reliably during pool tests. Better state estimation is
+                the step that will let HUMRS move beyond teleoperation toward autonomous inspection.
+              </p>
+              <div class="tags">
+                <span>ROS</span>
+                <span>VINS-Fusion</span>
+                <span>Vision-based state estimation</span>
+                <span>Waterproof design</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="research-card">
+            <div class="research-image zoom-out-image">
+              <img src="cat-robot.jpg" alt="Cat-inspired aerial self-righting robot with an actuated spine and tail." />
+            </div>
+            <div class="research-content">
+              <p class="item-type">Aerial self-righting · Bio-inspired robotics</p>
+              <h3>Cat-Inspired Robot</h3>
+              <p>
+                When a cat falls, it twists its spine and swings its tail to land on its feet. Robots rarely have that
+                ability, so an unexpected fall can expose their body and electronics to a damaging impact. This project
+                builds a cat-inspired robot to study how a body reorients in midair, and whether an actuated tail
+                helps. It combines a 2-DoF articulated spine with a 1-DoF actuated tail, and onboard sensors feed a
+                reinforcement learning controller trained in MuJoCo. My main role was the robot's mechanical and
+                electrical design: the structure, spine, tail, onboard electronics and wiring. I also helped with the
+                control side. In drop tests, the robot recovered to a feet-down orientation within 2&nbsp;m of free
+                fall, even when released upside down. With the tail, it needed only 1&nbsp;m and recovered more
+                completely, at the cost of 8.8% more mass.
+              </p>
+              <div class="tags">
+                <span>Mechanical design</span>
+                <span>Electrical design</span>
+                <span>Reinforcement learning</span>
+                <span>MuJoCo</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="research-card">
+            <div class="research-image contain-image">
+              <img src="whole-body-coordination.png" alt="Simulation of whole-body quadruped coordination with limb linkages and contact markers." />
+            </div>
+            <div class="research-content">
+              <p class="item-type">Decentralized coordination · Bio-inspired control</p>
+              <h3>Whole-Body Quadruped Coordination</h3>
+              <p>
+                Animals don't plan every footstep. Their legs respond to the forces they feel, and coordination
+                emerges from those local responses. Most legged robots instead follow precomputed foot trajectories,
+                which can break down on terrain the designer didn't plan for. This project investigates how
+                coordination between the legs, and between the body and the legs, can emerge from decentralized
+                control. Each joint is driven by a central pattern generator (CPG), and ground reaction force (GRF)
+                feedback adjusts its rhythm based on the load it feels, so no full foot trajectory is ever prescribed.
+                Building on existing CPG controllers for the hips and shoulders, I built a quadruped simulation with a
+                flexible body and designed the CPG and feedback rules for the knee and elbow joints. With feedback
+                control, the simulated quadruped produced a lateral-sequence walk, the walking gait seen in many
+                four-legged animals, without that gait being programmed in.
+              </p>
+              <div class="tags">
+                <span>CPG</span>
+                <span>GRF feedback</span>
+                <span>Simulation</span>
+                <span>Bio-inspired control</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="section">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Projects</h2>
+          </div>
+          <p class="section-note">Hands-on robotics and mechatronics projects outside the research section.</p>
+        </div>
+
+        <div class="projects-grid">
+          <article class="project-card">
+            <div class="project-image">
+              <img src="self-balancing.jpg" alt="E-DUCATI-ON self-balancing motorcycle with a reaction wheel." />
+            </div>
+            <div class="project-content">
+              <p class="item-type">Mechatronics · Engineering education</p>
+              <h3>E-DUCATI-ON: Self-Balancing Motorcycle</h3>
+              <p>
+                Feedback control is hard to learn from equations alone, because students rarely see a controller act
+                on real hardware. E-DUCATI-ON is a self-balancing motorcycle built as a teaching platform for PD
+                control. A reaction wheel spins up to produce corrective torque that keeps the motorcycle upright.
+                Through a simple control interface, students adjust the proportional and derivative gains and
+                immediately see how the motorcycle responds. Too little damping makes it oscillate, and too much makes
+                it sluggish. I designed and built the platform, including its 3D-printed frame, electronics, and
+                balancing controller.
+              </p>
+              <div class="tags">
+                <span>PD control</span>
+                <span>Mechatronics</span>
+                <span>3D printing</span>
+                <span>Embedded systems</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-image">
+              <img src="volumetric.jpg" alt="Prototype volumetric display hardware with a dense LED array and supporting electronics." />
+            </div>
+            <div class="project-content">
+              <p class="item-type">Personal project · Embedded electronics</p>
+              <h3>Volumetric Display</h3>
+              <p>
+                I built this volumetric display for fun, to see whether a flat LED panel could draw images that appear
+                three-dimensional. It combines a dense LED array, a custom 3D-printed structure, and embedded
+                electronics that control each LED.
+              </p>
+              <div class="tags">
+                <span>LED arrays</span>
+                <span>Embedded electronics</span>
+                <span>3D printing</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="resume" class="section alt">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Resume</h2>
+          </div>
+          <a class="btn primary" href="cv.pdf" target="_blank" rel="noopener noreferrer">View resume (PDF)</a>
+        </div>
+
+        <div class="resume-grid">
+          <div class="cv-card">
+            <h3>Skills</h3>
+            <dl class="skill-list">
+              <dt>Programming</dt><dd>Python, C/C++, MATLAB, embedded firmware</dd>
+              <dt>Robotics software</dt><dd>ROS, MuJoCo, PyTorch, OpenCV, VINS-Fusion</dd>
+              <dt>Hardware</dt><dd>CAD, PCB design (KiCad), Arduino, electronics integration</dd>
+              <dt>Fabrication</dt><dd>3D printing (FDM, SLA), CNC machining, laser cutting, PCB assembly</dd>
+              <dt>Languages</dt><dd>Korean (native), English and Japanese (fluent)</dd>
+            </dl>
+          </div>
+
+          <div class="cv-card">
+            <h3>Education</h3>
+            <div class="timeline-item">
+              <span class="timeline-year">2025–present</span>
+              <strong>Carnegie Mellon University</strong>
+              <p>M.S. in Mechanical Engineering · GPA 4.0</p>
+            </div>
+            <div class="timeline-item">
+              <span class="timeline-year">2021–2025</span>
+              <strong>Tohoku University</strong>
+              <p>B.Eng. in Electrical, Information and Physics Engineering</p>
+              <p class="small-note">Korea-Japan Joint Government Scholarship (full four-year scholarship)</p>
+            </div>
+          </div>
+
+          <div class="cv-card">
+            <h3>Research Experience</h3>
+            <div class="timeline-item">
+              <span class="timeline-year">2025–present</span>
+              <strong>Microrobotics Lab, Carnegie Mellon University</strong>
+              <p>Graduate researcher · Lil-Quad, a 33&nbsp;g untethered quadruped</p>
+            </div>
+            <div class="timeline-item">
+              <span class="timeline-year">2026–present</span>
+              <strong>Biorobotics Lab, Carnegie Mellon University</strong>
+              <p>Graduate research assistant · HUMRS underwater snake robot</p>
+            </div>
+            <div class="timeline-item">
+              <span class="timeline-year">2023–2025</span>
+              <strong>Real-World Computing Lab, Tohoku University</strong>
+              <p>Undergraduate research assistant · Decentralized quadruped control</p>
+            </div>
+          </div>
+
+          <div class="cv-card accent-card">
+            <h3>Publications</h3>
+            <ul class="pub-list">
+              <li>Aerial self-righting robot with an articulated spine and actuated tail. Submitted to ICRA.</li>
+              <li>Two conference papers on decentralized quadruped locomotion and coordination (2025).</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section contact-section">
+      <div class="container contact-card">
+        <div>
+          <p class="section-kicker">Contact</p>
+          <h2>Let’s connect</h2>
+          <p>
+            If you would like to talk about robotics research, collaboration, or related opportunities,
+            feel free to reach out.
+          </p>
+        </div>
+        <div class="contact-links">
+          <a href="mailto:hyun10028@gmail.com">hyun10028@gmail.com</a>
+          <a href="https://www.linkedin.com/in/paul-kim-01b92137a/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-wrap">
+      <span>© <span id="year"></span> Seokhyun Kim</span>
+      <span>Pittsburgh, PA</span>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
